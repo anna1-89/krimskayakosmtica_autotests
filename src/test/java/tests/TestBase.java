@@ -32,19 +32,16 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.baseUrl = "https://крымская-косметика.рф";
-        Configuration.browserSize = "1920x1080";
+        Configuration.baseUrl = System.getProperty("url", "https://крымская-косметика.рф");
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+        Configuration.browserVersion = System.getProperty("browserVersion", "148.0");
+        Configuration.headless = Boolean.parseBoolean(System.getProperty("headless", "false"));
 
-        //Configuration.baseUrl = System.getProperty("url", "https://qa-guru.github.io/one-page-form");
-        //Configuration.browser = System.getProperty("browser", "chrome");
-        //Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        //Configuration.browserVersion = System.getProperty("browserVersion", "148.0");
-        //Configuration.headless = Boolean.parseBoolean(System.getProperty("headless", "false"));
-
-        //String selenoidUrl = System.getProperty("selenoidUrl");
-        //if (selenoidUrl != null && !selenoidUrl.isBlank()) {
-        //    Configuration.remote = selenoidUrl;
-        //}
+        String selenoidUrl = System.getProperty("selenoidUrl");
+        if (selenoidUrl != null && !selenoidUrl.isBlank()) {
+            Configuration.remote = selenoidUrl;
+        }
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         ChromeOptions chromeOptions = new ChromeOptions();
