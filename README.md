@@ -141,6 +141,12 @@ ____
 ____
 <a id="video"></a>
 ## <img alt="Selenoid" height="25" src="images/logo/Selenoid.svg" width="25"/></a> Примеры видео выполнения тестов на Selenoid
+
+Каждый тест дополняется вложениями:
+- Видео
+- Ресурс страницы
+- Последний скриншот
+- Логи страницы
 ____
 <p align="center">
 <img title="Selenoid Video" src="images/video/video.gif" width="550" height="350"  alt="video">   
