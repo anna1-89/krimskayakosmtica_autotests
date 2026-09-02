@@ -5,7 +5,6 @@
 </p>
 
 ## **Содержание:**
-____
 
 * <a href="#tools">Технологии и инструменты</a>
 
@@ -46,11 +45,11 @@ ____
 - Среда: Selenoid
 - Удаленный запуск: Jenkins
 - Отчеты: Allure-отчет и отправка результата в Telegram
+---
 
-____
 <a id="cases"></a>
 ## <a name="Примеры автоматизированных тест-кейсов">**Примеры автоматизированных тест-кейсов:**</a>
-____
+
 - ✓ *Проверка работы поиска*
 - ✓ *Проверка работы кнопок панели меню*
 - ✓ *Проверка работы с найденным с помощью поиска товаром
@@ -59,7 +58,7 @@ ____
 ____
 <a id="jenkins"></a>
 ## <img alt="Jenkins" height="25" src="images/logo/Jenkins.svg" width="25"/></a><a name="Сборка"></a>Сборка в [Jenkins](https://jenkins.qa.guru/view/java-students/job/42_annap_module4_all/)</a>
-____
+
 <p align="center">  
 <a href="https://jenkins.qa.guru/view/java-students/job/42_annap_module4_all/"><img src="images/screen/jenkins.png" alt="Jenkins" width="950"/></a>  
 </p>
@@ -75,7 +74,7 @@ ____
 
 <a id="console"></a>
 ## Команды для запуска из терминала
-___
+
 ***Локальный запуск:***
 ```bash  
 gradle clean
@@ -96,7 +95,7 @@ test
 ___
 <a id="allure"></a>
 ## <img alt="Allure" height="25" src="images/logo/Allure.svg" width="25"/></a> <a name="Allure"></a>Allure [отчет](https://jenkins.qa.guru/view/java-students/job/42_annap_module4_all/allure/)</a>
-___
+
 
 ### *Основная страница отчёта*
 
@@ -123,7 +122,7 @@ ___
 ___
 <a id="allure-testops"></a>
 ## <img alt="Allure" height="25" src="images/logo/Allure2.svg" width="25"/></a>Интеграция с <a target="_blank" href="https://allure.qa.guru/project/5372/dashboards">Allure TestOps</a>
-____
+
 ### *Allure TestOps Dashboard*
 
 <p align="center">  
@@ -140,7 +139,7 @@ ____
 ____
 <a id="telegram"></a>
 ## <img alt="Allure" height="25" src="images/logo/Telegram.svg" width="25"/></a> Уведомление в Telegram при помощи бота
-____
+
 <p align="center">  
 <img title="Allure Overview Dashboard" src="images/screen/telegram.png" width="550">  
 </p>
@@ -154,7 +153,7 @@ ____
 - Ресурс страницы
 - Последний скриншот
 - Логи страницы
-____
+
 <p align="center">
 <img title="Selenoid Video" src="images/video/video.gif" width="550" height="350"  alt="video">   
 </p>
