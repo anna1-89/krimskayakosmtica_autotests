@@ -1,7 +1,7 @@
 # Демо-проект по автоматизации тестирования для интернет магазина [Крымская-косметика.рф](https://крымская-косметика.рф/)
 
 <p align="center">  
-<a href="https://крымская-косметика.рф/"><img src="images/logo/logo-site.png" alt="Jenkins" width="600"/></a>  
+<a href="https://крымская-косметика.рф/"><img src="images/logo/logo-site.png" alt="Jenkins" width="500"/></a>  
 </p>
 
 ## **Содержание:**
