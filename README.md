@@ -107,6 +107,10 @@ ___
 <img title="Allure Tests" src="images/screen/test-cases.png" width="850">  
 </p>
 
+<p align="center">  
+<img title="Allure Tests" src="images/screen/test-cases-behavior.png" width="850">  
+</p>
+
 ### *Графики*
 
 <p align="center">  
