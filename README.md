@@ -141,7 +141,9 @@ ____
 ## <img alt="Allure" height="25" src="images/logo/Telegram.svg" width="25"/></a> Уведомление в Telegram при помощи бота
 
 <p align="center">  
-<img title="Allure Overview Dashboard" src="images/screen/telegram.png" width="550">  
+<img title="Telegram" src="images/screen/telegram.png" width="550">
+
+Тут был бы скрин отчета о прогоне тестов, который пришел в Телеграмм, но из-за блокировок телеграмма скрипты отправки результатов теста в телеграмм не работают
 </p>
 
 ____
