@@ -21,7 +21,7 @@ public class HeaderComponent {
         return this;
     }
 
-    @Step("Нажимаем на кеопку авторизации")
+    @Step("Нажимаем на кнопку авторизации")
     public HeaderComponent clickLoginButton() {
         loginButton.click();
         return this;

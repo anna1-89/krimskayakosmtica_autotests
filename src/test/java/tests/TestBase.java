@@ -23,6 +23,8 @@ public class TestBase {
     CartPage cartPage = new CartPage();
     FavoritesPage favoritesPage = new FavoritesPage();
     LoginPage loginPage = new LoginPage();
+    RegistrationPage registrationPage = new RegistrationPage();
+    PersonalAccountPage personalAccountPage = new PersonalAccountPage();
     CatalogPage catalogPage = new CatalogPage();
 
     @BeforeEach
@@ -32,16 +34,21 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.baseUrl = System.getProperty("url", "https://крымская-косметика.рф");
+        Configuration.browserSize = "1920x1080";
+        Configuration.browser = "chrome";
+        Configuration.baseUrl = "https://крымская-косметика.рф";
+        //Configuration.timeout = 10000; // default 4000
+
+        /*Configuration.baseUrl = System.getProperty("url", "https://крымская-косметика.рф");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        Configuration.browserVersion = System.getProperty("browserVersion", "148.0");
+        Configuration.browserVersion = System.getProperty("browserVersion", "156.0");
         Configuration.headless = Boolean.parseBoolean(System.getProperty("headless", "false"));
 
         String selenoidUrl = System.getProperty("selenoidUrl");
         if (selenoidUrl != null && !selenoidUrl.isBlank()) {
             Configuration.remote = selenoidUrl;
-        }
+        }*/
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         ChromeOptions chromeOptions = new ChromeOptions();

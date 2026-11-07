@@ -4,7 +4,9 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-@Story("Работоспособность кнопок головной компоненты")
+import static com.codeborne.selenide.logevents.SelenideLogger.step;
+
+@Story("Функционал головного меню")
 public class HeaderComponentTests extends TestBase{
     String productInCatalog = "Медовое мыло \"Тонус\" с маточным молочком";
     String productNotInCatalog = "Золотой бальзам Гвоздика масло косметическое мягкое 4г";
@@ -21,9 +23,14 @@ public class HeaderComponentTests extends TestBase{
     @Test
     @DisplayName("Проверка открытия окна для авторизации")
     void loginPageShouldAppear() {
-        mainPage.openPage();
-        headerComponent.clickLoginButton();
-        loginPage.assertLoginPageIsOpened();
+        step("Перейти на главную страницу и нажать на кнопку перехода на страницу авторизации", () -> {
+            mainPage.openPage();
+            headerComponent.clickLoginButton();
+        });
+        step("Проверить, что осуществлен переход на страницу авторизации", () -> {
+            loginPage.assertLoginPageIsOpened();
+            loginPage.assertLoginPageTitle();
+        });
     }
 
     @Test
