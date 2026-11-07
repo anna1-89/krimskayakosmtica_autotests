@@ -10,7 +10,7 @@ import static com.codeborne.selenide.logevents.SelenideLogger.step;
 import static data.testData.*;
 
 @Story("Функционал авторизации")
-public class LoginPageTests extends TestBase{
+public class LoginTests extends TestBase{
 
     @Test
     @DisplayName("Проверка успешной авторизации на сайте")
@@ -33,7 +33,7 @@ public class LoginPageTests extends TestBase{
 
     @CsvFileSource(resources = "/test_data/loginShouldNotBeSuccessful.csv")
     @ParameterizedTest
-    @DisplayName("Проверка не успешной авторизации на сайте при невалидных входных данных для {0} {1} {2}")
+    @DisplayName("Проверка неуспешной авторизации на сайте при невалидных входных данных для {0} {1} {2}")
     void loginShouldNotBeSuccessfulForUnregisteredLoginData(String userEmailOrPhoneNumberFromFile, String userPasswordFromFile) {
         step("Перейти на главную страницу и нажать на кнопку перехода на страницу авторизации", () -> {
             mainPage.openPage();

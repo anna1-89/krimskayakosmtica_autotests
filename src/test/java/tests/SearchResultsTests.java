@@ -5,7 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 @Story("Работа с результатами поиска")
-public class SearchPageResultsTests extends TestBase{
+public class SearchResultsTests extends TestBase{
     String productInCatalog = "Медовое мыло \"Тонус\" с маточным молочком";
 
     @Test

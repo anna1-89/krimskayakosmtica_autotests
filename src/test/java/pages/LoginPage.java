@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class LoginPage {
 
@@ -15,7 +16,7 @@ public class LoginPage {
     private final SelenideElement passwordInput = $("#password");
     private final SelenideElement enterButton = $("button[name=commit]");
     private final SelenideElement errorMessage = $("[class*='co-notice--danger']");
-    private final SelenideElement registrationButton = $("a[title='Зарегистрироваться']");
+    private final SelenideElement registrationButton = $x("//a[contains(text(),'Зарегистрироваться')]");
 
     private final String loginPageTitle = "Вход в кабинет покупателя";
     private final String errorMessageText = "Сочетание логина и пароля не подходит";
@@ -46,7 +47,7 @@ public class LoginPage {
     }
 
     //Asserts
-    @Step("Проверяем, что доступна форма авторизации")
+    @Step("Проверяем, что открыта форма авторизации")
     public LoginPage assertLoginPageIsOpened() {
         loginForm.shouldBe(visible);
         return this;

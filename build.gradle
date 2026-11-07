@@ -26,7 +26,9 @@ dependencies {
             "com.codeborne:selenide:7.0.4",
             "io.qameta.allure:allure-selenide:2.33.0",
             "org.junit.jupiter:junit-jupiter:5.9.3",
-			"org.slf4j:slf4j-simple:2.0.17")
+			"org.slf4j:slf4j-simple:2.0.17",
+            "net.datafaker:datafaker:2.5.4",
+            "org.assertj:assertj-core:3.27.7")
 }
 
 tasks.withType(JavaCompile) {

@@ -7,14 +7,14 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 @Story("Функционал головного меню")
-public class HeaderComponentTests extends TestBase{
+public class MenuTests extends TestBase{
     String productInCatalog = "Медовое мыло \"Тонус\" с маточным молочком";
     String productNotInCatalog = "Золотой бальзам Гвоздика масло косметическое мягкое 4г";
 
 
     @Test
     @DisplayName("Проверка раскрытия каталога")
-    void catalogPageShouldAppear() {
+    void catalogPageShouldBeOpened() {
         mainPage.openPage();
         headerComponent.clickCatalogButton();
         catalogPage.assertCatalogIsOpened();
@@ -22,7 +22,7 @@ public class HeaderComponentTests extends TestBase{
 
     @Test
     @DisplayName("Проверка открытия окна для авторизации")
-    void loginPageShouldAppear() {
+    void loginPageShouldBeOpened() {
         step("Перейти на главную страницу и нажать на кнопку перехода на страницу авторизации", () -> {
             mainPage.openPage();
             headerComponent.clickLoginButton();
@@ -35,7 +35,7 @@ public class HeaderComponentTests extends TestBase{
 
     @Test
     @DisplayName("Проверка открытия окна корзины")
-    void cartPageShouldAppear() {
+    void cartPageShouldBeOpened() {
         mainPage.openPage();
         headerComponent.clickCartButton();
         cartPage.assertCartPageIsOpened();
@@ -43,7 +43,7 @@ public class HeaderComponentTests extends TestBase{
 
     @Test
     @DisplayName("Проверка открытия окна избранное")
-    void favoritesPageShouldAppear() {
+    void favoritesPageShouldBeOpened() {
         mainPage.openPage();
         headerComponent.clickFavoritesButton();
         favoritesPage.assertFavoritesPageIsOpened();
