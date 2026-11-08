@@ -68,7 +68,6 @@ public class RegistrationTests extends TestBase{
         step("Проверить успешность регистрации", () -> {
             personalAccountPage.assertPersonalAccountPageTitle();
             personalAccountPage.assertPersonalAccountExistButtonIsAvailable();
-            personalAccountPage.clickUserContactDataButton();
             personalAccountPage.assertPersonalAccountUserDataIsCorrect(fakerUsername, fakerPhoneNumber, fakerUserEmail);
         });
     }

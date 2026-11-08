@@ -49,9 +49,13 @@ public class PersonalAccountPage {
 
     @Step("Проверяем, что данные пользователя в Личном кабинете соответствуют зарегистрированным данным")
     public PersonalAccountPage assertPersonalAccountUserDataIsCorrect(String userName, String userPhoneNumber, String userEmail) {
-        assertThat(personalAccountUserFIO.getValue()).isEqualTo(userName);
-        assertThat(personalAccountUserPhoneNumber.getValue()).isEqualTo("+" + userPhoneNumber);
-        assertThat(personalAccountUserEmail.getValue()).isEqualTo(userEmail);
+        clickUserContactDataButton();
+        String actualFIO = personalAccountUserFIO.getValue();
+        String actualPhoneNumber = personalAccountUserPhoneNumber.getValue().replaceAll("[()-]", "");
+        String actualEmail = personalAccountUserEmail.getValue();
+        assertThat(actualFIO).isEqualTo(userName);
+        assertThat(actualPhoneNumber).isEqualTo("+" + userPhoneNumber);
+        assertThat(actualEmail).isEqualTo(userEmail);
         return this;
     }
 
