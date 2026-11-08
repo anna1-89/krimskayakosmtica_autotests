@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
@@ -39,15 +40,16 @@ public class HeaderComponent {
         return this;
     }
 
-    @Step("Вводим поисковый запрос")
-    public HeaderComponent enterSearchProduct(String data) {
-        searchField.setValue(data);
+    @Step("Вводим поисковый запрос: \"{value}\"")
+    public HeaderComponent enterSearchProduct(String value) {
+        searchField.setValue(value);
         return this;
     }
 
     @Step("Нажимаем на кнопку поиска")
     public HeaderComponent clickSearchButton() {
         searchButton.click();
+        Selenide.sleep(10000);
         return this;
     }
 

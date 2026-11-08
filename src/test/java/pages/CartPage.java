@@ -4,18 +4,35 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class CartPage {
     //Elements
+    private final SelenideElement cartForm = $("[class*='widget-type_system_widget_v4_cart_1']");
     private final SelenideElement cartTitle = $(".heading");
+
 
     private final String cartPageTitle = "Корзина";
 
     //Asserts
-    @Step("Проверяем открытие окна Корзины")
+    @Step("Проверяем, что открыто окно Корзины")
     public CartPage assertCartPageIsOpened() {
+        cartForm.shouldBe(visible);
+        return this;
+    }
+
+    @Step("Проверяем заголовок окна Корзина")
+    public CartPage assertCartPageTitle() {
         cartTitle.shouldHave(text(cartPageTitle));
+        return this;
+    }
+
+    @Step("Проверяем, что товар добавлен в Корзину: \"{value}\"")
+    public CartPage assertCartItemExists(String value) {
+        SelenideElement productInCart = $x("//a[contains(text(),value)]");
+        productInCart.shouldBe(visible);
         return this;
     }
 }

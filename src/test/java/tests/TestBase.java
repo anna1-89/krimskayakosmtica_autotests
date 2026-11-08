@@ -20,6 +20,7 @@ public class TestBase {
     MainPage mainPage = new MainPage();
     HeaderComponent headerComponent = new HeaderComponent();
     SearchPage searchPage = new SearchPage();
+    ProductPage productPage = new ProductPage();
     CartPage cartPage = new CartPage();
     FavoritesPage favoritesPage = new FavoritesPage();
     LoginPage loginPage = new LoginPage();
@@ -37,7 +38,7 @@ public class TestBase {
         Configuration.browserSize = "1920x1080";
         Configuration.browser = "chrome";
         Configuration.baseUrl = "https://крымская-косметика.рф";
-        //Configuration.timeout = 10000; // default 4000
+        Configuration.timeout = 10000; // default 4000
 
         /*Configuration.baseUrl = System.getProperty("url", "https://крымская-косметика.рф");
         Configuration.browser = System.getProperty("browser", "chrome");

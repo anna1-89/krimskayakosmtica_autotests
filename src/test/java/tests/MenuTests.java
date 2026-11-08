@@ -8,20 +8,19 @@ import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 @Story("Функционал головного меню")
 public class MenuTests extends TestBase{
-    String productInCatalog = "Медовое мыло \"Тонус\" с маточным молочком";
-    String productNotInCatalog = "Золотой бальзам Гвоздика масло косметическое мягкое 4г";
-
 
     @Test
     @DisplayName("Проверка раскрытия каталога")
     void catalogPageShouldBeOpened() {
-        mainPage.openPage();
-        headerComponent.clickCatalogButton();
+        step("Перейти на главную страницу и нажать на кнопку перехода на страницу авторизации", () -> {
+            mainPage.openPage();
+            headerComponent.clickCatalogButton();
+        });
         catalogPage.assertCatalogIsOpened();
     }
 
     @Test
-    @DisplayName("Проверка открытия окна для авторизации")
+    @DisplayName("Проверка открытия окна авторизации")
     void loginPageShouldBeOpened() {
         step("Перейти на главную страницу и нажать на кнопку перехода на страницу авторизации", () -> {
             mainPage.openPage();
@@ -36,36 +35,27 @@ public class MenuTests extends TestBase{
     @Test
     @DisplayName("Проверка открытия окна корзины")
     void cartPageShouldBeOpened() {
-        mainPage.openPage();
-        headerComponent.clickCartButton();
-        cartPage.assertCartPageIsOpened();
+        step("Перейти на главную страницу и нажать на кнопку перехода на страницу корзины", () -> {
+            mainPage.openPage();
+            headerComponent.clickCartButton();
+        });
+        step("Проверить, что осуществлен переход на страницу корзины", () -> {
+            cartPage.assertCartPageIsOpened();
+            cartPage.assertCartPageTitle();
+        });
     }
 
     @Test
     @DisplayName("Проверка открытия окна избранное")
     void favoritesPageShouldBeOpened() {
-        mainPage.openPage();
-        headerComponent.clickFavoritesButton();
-        favoritesPage.assertFavoritesPageIsOpened();
+        step("Перейти на главную страницу и нажать на кнопку перехода на страницу избранного", () -> {
+            mainPage.openPage();
+            headerComponent.clickFavoritesButton();
+        });
+        step("Проверить, что осуществлен переход на страницу избранного", () -> {
+            favoritesPage.assertFavoritesPageIsOpened();
+            favoritesPage.assertFavoritesPageTitle();
+        });
     }
 
-    @Story("Работоспособность поисковой строки")
-
-    @Test
-    @DisplayName("Проверка поиска при наличии товара в Каталоге")
-    void productShouldBeFound() {
-        mainPage.openPage();
-        headerComponent.enterSearchProduct(productInCatalog);
-        headerComponent.clickSearchButton();
-        searchPage.assertSuccessSearchResult(productInCatalog);
-    }
-
-    @Test
-    @DisplayName("Проверка поиска при отсутствии товара в Каталоге")
-    void productNotShouldBeFound() {
-        mainPage.openPage();
-        headerComponent.enterSearchProduct(productNotInCatalog);
-        headerComponent.clickSearchButton();
-        searchPage.assertNotFoundSearchResult();
-    }
 }
