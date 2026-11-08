@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 @Story("Работа с поиском и результатами поиска")
-public class SearchTests extends TestBase{
+public class ProductTests extends TestBase{
     String productInCatalog = "Медовое мыло \"Тонус\" с маточным молочком";
     String productNotInCatalog = "Золотой бальзам Гвоздика масло косметическое мягкое 4г";
 
