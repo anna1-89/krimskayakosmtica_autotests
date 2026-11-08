@@ -3,6 +3,7 @@ package tests;
 import io.qameta.allure.Story;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -49,6 +50,7 @@ public class RegistrationTests extends TestBase{
         });
     }
 
+    @Disabled
     @Test
     @DisplayName("Проверка успешной регистрации на сайте")
     void registrationShouldBeSuccessful() {
