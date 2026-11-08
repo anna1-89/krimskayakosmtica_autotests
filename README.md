@@ -61,14 +61,14 @@ ____
 ## <img alt="Jenkins" height="25" src="images/logo/Jenkins.svg" width="25"/></a><a name="Сборка"></a>Сборка в [Jenkins](https://jenkins.qa.guru/view/java-students/job/42_annap_module4_all/)</a>
 
 <p align="center">  
-<a href="https://jenkins.qa.guru/view/java-students/job/42_annap_module4_all/"><img src="images/screen/jenkins.png" alt="Jenkins" width="950"/></a>  
+<a href="https://jenkins.qa.guru/view/java-students/job/42_annap_module4_all/"><img src="images/screen/jenkins2.png" alt="Jenkins" width="950"/></a>  
 </p>
 
 
 ### **Параметры сборки в Jenkins:**
 
 - *browser (браузер, по умолчанию chrome)*
-- *browserVersion (версия браузера, по умолчанию 148.0)*
+- *browserVersion (версия браузера, по умолчанию 156.0)*
 - *browserSize (размер окна браузера, по умолчанию 1920x1080)*
 - *baseUrl (адрес тестируемого веб-сайта)*
 - *remoteUrl (логин, пароль и адрес удаленного сервера Selenoid)*
