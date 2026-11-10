@@ -1,25 +1,22 @@
 package pages;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static data.testData.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SearchPage {
     //Elements
     private final SelenideElement productNotFoundMessage = $(".empty-catalog-message");
-    private final SelenideElement productItems = $(".catalog");
+    private final SelenideElement productCatalog = $(".catalog");
 
     //Actions
     @Step("Нажимаем на найденный товар для перехода к его просмотру")
     public SearchPage clickViewProduct(String value) {
-        productItems.scrollTo();
+        productCatalog.scrollTo();
         SelenideElement productItem = $x("//a[contains(text(),'" + value + "')]");
         productItem.click();
         return this;
@@ -27,19 +24,17 @@ public class SearchPage {
 
     @Step("Нажимаем на кнопку добавления товара в Корзину")
     public SearchPage clickAddToCartButton(String value) {
-        productItems.scrollTo();
+        productCatalog.scrollTo();
         SelenideElement addToCartButton = $x("//a[contains(text(),'" + value + "')]/ancestor::div[contains(@class, 'product-preview__content')]//button[contains(@class, 'button add-cart-counter__btn')]");
         addToCartButton.click();
-        Selenide.sleep(10000);
         return this;
     }
 
     @Step("Нажимаем на кнопку добавления товара в Избранное")
     public SearchPage clickAddToFavoritesButton(String value) {
-        productItems.scrollTo();
+        productCatalog.scrollTo();
         SelenideElement addToFavoritesButton = $x("//a[contains(text(),'" + value + "')]/ancestor::div[contains(@class, 'product-preview__content')]//button[contains(@class, 'favorites_trigger button is-icon favorites-not-added')]");
         addToFavoritesButton.click();
-        Selenide.sleep(10000);
         return this;
     }
 
@@ -67,8 +62,7 @@ public class SearchPage {
     @Step("Проверяем, что поменялась кнопка добавления товара в Избранное")
     public SearchPage checkProductAddedToFavoritesButtonIsChanged(String value) {
         SelenideElement addedToFavoritesButton = $x("//a[contains(text(),'" + value + "')]/ancestor::div[contains(@class, 'product-preview__content')]//button[contains(@class, 'favorites_trigger button is-icon favorites-added')]");
-        String title = addedToFavoritesButton.getAttribute("title");
-        assertEquals(buttonTitleAddedToFavorites, title);
+        addedToFavoritesButton.shouldHave(attribute("title", buttonTitleAddedToFavorites));
         return this;
     }
 
