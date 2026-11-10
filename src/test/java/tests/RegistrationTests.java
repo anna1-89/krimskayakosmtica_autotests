@@ -45,12 +45,12 @@ public class RegistrationTests extends TestBase{
             loginPage.clickRegistrationButton()
         );
         step("Проверить успешность открытия страницы регистрации", () -> {
-            registrationPage.checkRegistrationPageTitle();
+            registrationPage.checkRegistrationPageTitle(registrationTitlePage);
             registrationPage.checkRegistrationPageIsOpen();
         });
     }
 
-    @Disabled
+    @Disabled("Тест полностью отлажен, но т.к. это продуктовый контур, регистрация тестовых пользователей не желательна")
     @Test
     @DisplayName("Проверка успешной регистрации на сайте")
     void registrationShouldBeSuccessful() {
@@ -68,7 +68,7 @@ public class RegistrationTests extends TestBase{
             registrationPage.clickRegistrationButton();
         });
         step("Проверить успешность регистрации", () -> {
-            personalAccountPage.checkPersonalAccountPageTitle();
+            personalAccountPage.checkPersonalAccountPageTitle(personalAccountPageTitle);
             personalAccountPage.checkPersonalAccountExistButtonIsAvailable();
             personalAccountPage.checkPersonalAccountUserDataIsCorrect(fakerUsername, fakerPhoneNumber, fakerUserEmail);
         });

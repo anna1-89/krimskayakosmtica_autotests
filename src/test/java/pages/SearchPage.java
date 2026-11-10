@@ -4,8 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 import static data.testData.*;
 
 public class SearchPage {
@@ -25,15 +24,16 @@ public class SearchPage {
     @Step("Нажимаем на кнопку добавления товара в Корзину")
     public SearchPage clickAddToCartButton(String value) {
         productCatalog.scrollTo();
-        SelenideElement addToCartButton = $x("//a[contains(text(),'" + value + "')]/ancestor::div[contains(@class, 'product-preview__content')]//button[contains(@class, 'button add-cart-counter__btn')]");
-        addToCartButton.click();
+        SelenideElement addToCartButton = $$(".product-preview__content").findBy(text(value)).$("[class*='add-cart-counter__btn']");
+
+    addToCartButton.click();
         return this;
     }
 
     @Step("Нажимаем на кнопку добавления товара в Избранное")
     public SearchPage clickAddToFavoritesButton(String value) {
         productCatalog.scrollTo();
-        SelenideElement addToFavoritesButton = $x("//a[contains(text(),'" + value + "')]/ancestor::div[contains(@class, 'product-preview__content')]//button[contains(@class, 'favorites_trigger button is-icon favorites-not-added')]");
+        SelenideElement addToFavoritesButton = $$(".product-preview__content").findBy(text(value)).$("[class*='favorites-not-added']");
         addToFavoritesButton.click();
         return this;
     }
@@ -54,14 +54,14 @@ public class SearchPage {
 
     @Step("Проверяем, что поменялась кнопка добавления товара в Корзину")
     public SearchPage checkProductAddedToCartButtonIsChanged(String value) {
-        SelenideElement addedToCartButton = $x("//a[contains(text(),'" + value + "')]/ancestor::div[contains(@class, 'product-preview__content')]//span[contains(@class, 'add-cart-counter__detail-text')]");
+        SelenideElement addedToCartButton = $$(".product-preview__content").findBy(text(value)).$("[class*='add-cart-counter__detail-text']");
         addedToCartButton.shouldHave(text(buttonTextAddedToCart));
         return this;
     }
 
     @Step("Проверяем, что поменялась кнопка добавления товара в Избранное")
     public SearchPage checkProductAddedToFavoritesButtonIsChanged(String value) {
-        SelenideElement addedToFavoritesButton = $x("//a[contains(text(),'" + value + "')]/ancestor::div[contains(@class, 'product-preview__content')]//button[contains(@class, 'favorites_trigger button is-icon favorites-added')]");
+        SelenideElement addedToFavoritesButton = $$(".product-preview__content").findBy(text(value)).$("[class*='favorites-added']");
         addedToFavoritesButton.shouldHave(attribute("title", buttonTitleAddedToFavorites));
         return this;
     }
