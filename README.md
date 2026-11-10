@@ -60,11 +60,6 @@ ____
 <a id="jenkins"></a>
 ## <img alt="Jenkins" height="25" src="images/logo/Jenkins.svg" width="25"/></a><a name="Сборка"></a>Сборка в [Jenkins](https://jenkins.qa.guru/job/42_annap_krimskaya_kosmetica_ui_tests//)</a>
 
-<p align="center">  
-<a href="https://jenkins.qa.guru/view/java-students/job/42_annap_module4_all/"><img src="images/screen/jenkins2.png" alt="Jenkins" width="950"/></a>  
-</p>
-
-
 ### **Параметры сборки в Jenkins:**
 
 - *browser (браузер, по умолчанию chrome)*
