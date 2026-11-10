@@ -94,7 +94,7 @@ test
 ```
 ___
 <a id="allure"></a>
-## <img alt="Allure" height="25" src="images/logo/Allure.svg" width="25"/></a> <a name="Allure"></a>Allure [отчет](https://jenkins.qa.guru/view/java-students/job/42_annap_module4_all/allure/)</a>
+## <img alt="Allure" height="25" src="images/logo/Allure.svg" width="25"/></a> <a name="Allure"></a>Allure [отчет](https://jenkins.qa.guru/job/42_annap_krimskaya_kosmetica_ui_tests/30/allure/)</a>
 
 Allure Report — это популярный инструмент с открытым исходным кодом от компании Qameta Software для визуализации результатов автоматизированного тестирования. Он преобразует «сухие» технические логи из автотестов в наглядные и интерактивные HTML-отчёты.
 
