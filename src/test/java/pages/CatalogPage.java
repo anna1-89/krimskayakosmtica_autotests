@@ -12,7 +12,7 @@ public class CatalogPage {
 
     //Asserts
     @Step("Проверяем открытие окна с каталогом")
-    public CatalogPage assertCatalogIsOpened() {
+    public CatalogPage checkCatalogIsOpened() {
         catalogModal.shouldBe(visible);
         return this;
     }

@@ -25,9 +25,9 @@ public class LoginTests extends TestBase{
             loginPage.clickEnterButton();
         });
         step("Проверить успешность авторизации", () -> {
-            personalAccountPage.assertPersonalAccountPageTitle();
-            personalAccountPage.assertPersonalAccountOrdersButtonIsAvailable();
-            personalAccountPage.assertPersonalAccountExistButtonIsAvailable();
+            personalAccountPage.checkPersonalAccountPageTitle(personalAccountPageTitle);
+            personalAccountPage.checkPersonalAccountOrdersButtonIsAvailable();
+            personalAccountPage.checkPersonalAccountExistButtonIsAvailable();
         });
     }
 
@@ -45,7 +45,7 @@ public class LoginTests extends TestBase{
             loginPage.clickEnterButton();
         });
         step("Проверить не успешность авторизации и отображение сообщения об ошибке", () -> {
-            loginPage.assertLoginErrorMessage();
+            loginPage.checkLoginErrorMessage(loginErrorMessageText);
         });
     }
 

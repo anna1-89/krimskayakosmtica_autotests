@@ -18,17 +18,12 @@ public class RegistrationPage {
     private final SelenideElement userPasswordInput = $("#client_password");
     private final SelenideElement userPasswordConfirmationInput = $("#client_password_confirmation");
     private final SelenideElement registrationButton = $("button[class*='js-co-login-submit']");
+
     private final SelenideElement errorGeneralMessage =$("div[class='co-login']").$("[class*='co-notice--danger']") ;
     private final SelenideElement errorUserNameMessage =$("div[class*='co-input--name'][class*='co-input--error']").$("[class*='co-notice--danger']") ;
     private final SelenideElement errorEmailMessage =$("div[class*='co-input--email'][class*='co-input--error']").$("[class*='co-notice--danger']") ;
     private final SelenideElement errorPhoneNumberMessage =$("div[class*='co-input--tel']").$("[class*='co-notice--danger']") ;
     private final SelenideElement errorPasswordMessage =$("div[class*='co-input--password'][class*='co-input--error']").$("[class*='co-notice--danger']") ;
-
-    private final String registrationTitlePage = "Регистрация";
-    private final String userAlreadyExistsErrorMessageText = "Пользователь с таким email уже зарегистрирован";
-    private final String failedPasswordConfirmationErrorMessageText = "не совпадает с подтверждением";
-    private final String invalidPasswordErrorMessageText = "Пароль должен быть не меньше 6 символов";
-    private final String emptyInputErrorMessageText = "Поле не заполнено";
 
     //Actions
     @Step("Вводим контактное лицо (ФИО)): \"{value}\"")
@@ -69,44 +64,52 @@ public class RegistrationPage {
 
     //Asserts
     @Step("Проверяем, что находимся форма регистрации")
-    public RegistrationPage assertRegistrationPageIsOpen() {
+    public RegistrationPage checkRegistrationPageIsOpen() {
         registrationForm.shouldBe(visible);
         return this;
     }
 
     @Step("Проверяем заголовок страницы регистрации")
-    public RegistrationPage assertRegistrationPageTitle() {
-        registrationTitle.shouldHave(text(registrationTitlePage));
+    public RegistrationPage checkRegistrationPageTitle(String expectedPageTitle) {
+        registrationTitle.shouldHave(text(expectedPageTitle));
         return this;
     }
 
-    @Step("Проверяем ошибку регистрации для уже зарегистрированного пользователя")
-    public RegistrationPage assertUserAlreadyExistsRegistrationError() {
-        errorGeneralMessage.shouldHave(text(userAlreadyExistsErrorMessageText));
-        errorEmailMessage.shouldHave(text(userAlreadyExistsErrorMessageText));
+    @Step("Проверяем отображение ошибки в общем блоке с ошибками")
+    public RegistrationPage checkGeneralErrorMessage(String expectedErrorText) {
+        errorGeneralMessage.shouldHave(text(expectedErrorText));
         return this;
     }
 
-    @Step("Проверяем ошибку регистрации при несовпадающих паролях")
-    public RegistrationPage assertFailedConfirmationPasswordRegistrationError() {
-        errorGeneralMessage.shouldHave(text(failedPasswordConfirmationErrorMessageText));
-        errorPasswordMessage.shouldHave(text(failedPasswordConfirmationErrorMessageText));
+    @Step("Проверяем отображение ошибки для поля имени пользователя")
+    public RegistrationPage checkUsernameErrorMessage(String expectedErrorText) {
+        errorUserNameMessage.shouldHave(text(expectedErrorText));
         return this;
     }
 
-    @Step("Проверяем ошибку регистрации при невалидном пароле")
-    public RegistrationPage assertInvalidPasswordRegistrationError() {
-        errorGeneralMessage.shouldHave(text(invalidPasswordErrorMessageText));
-        errorPasswordMessage.shouldHave(text(invalidPasswordErrorMessageText));
+    @Step("Проверяем отображение ошибки для поля Email")
+    public RegistrationPage checkEmailErrorMessage(String expectedErrorText) {
+        errorEmailMessage.shouldHave(text(expectedErrorText));
         return this;
     }
 
-    @Step("Проверяем ошибку регистрации при незаполненных данных ФИО, номер телефона и Email")
-    public RegistrationPage assertEmptyInputsRegistrationError() {
-        errorUserNameMessage.shouldHave(text(emptyInputErrorMessageText));
-        errorEmailMessage.shouldHave(text(emptyInputErrorMessageText));
-        errorPhoneNumberMessage.shouldHave(text(emptyInputErrorMessageText));
+    @Step("Проверяем отображение ошибки для поля Email")
+    public RegistrationPage checkPhoneNumberErrorMessage(String expectedErrorText) {
+        errorPhoneNumberMessage.shouldHave(text(expectedErrorText));
         return this;
     }
+
+    @Step("Проверяем отображение ошибки для пароля")
+    public RegistrationPage checkPasswordConfirmationErrorMessage(String expectedErrorText) {
+        errorPasswordMessage.shouldHave(text(expectedErrorText));
+        return this;
+    }
+
+    @Step("Проверяем отображение ошибки для поля пароля")
+    public RegistrationPage checkPasswordErrorMessage(String expectedErrorText) {
+        errorPasswordMessage.shouldHave(text(expectedErrorText));
+        return this;
+    }
+
 
 }

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
+import static data.testData.*;
 
 @Story("Функционал головного меню")
 public class MenuTests extends TestBase{
@@ -16,7 +17,7 @@ public class MenuTests extends TestBase{
             mainPage.openPage();
             headerComponent.clickCatalogButton();
         });
-        catalogPage.assertCatalogIsOpened();
+        catalogPage.checkCatalogIsOpened();
     }
 
     @Test
@@ -27,8 +28,8 @@ public class MenuTests extends TestBase{
             headerComponent.clickLoginButton();
         });
         step("Проверить, что осуществлен переход на страницу авторизации", () -> {
-            loginPage.assertLoginPageIsOpened();
-            loginPage.assertLoginPageTitle();
+            loginPage.checkLoginPageIsOpened();
+            loginPage.checkLoginPageTitle(loginPageTitle);
         });
     }
 
@@ -40,8 +41,8 @@ public class MenuTests extends TestBase{
             headerComponent.clickCartButton();
         });
         step("Проверить, что осуществлен переход на страницу корзины", () -> {
-            cartPage.assertCartPageIsOpened();
-            cartPage.assertCartPageTitle();
+            cartPage.checkCartPageIsOpened();
+            cartPage.checkCartPageTitle(cartPageTitle);
         });
     }
 
@@ -53,8 +54,8 @@ public class MenuTests extends TestBase{
             headerComponent.clickFavoritesButton();
         });
         step("Проверить, что осуществлен переход на страницу избранного", () -> {
-            favoritesPage.assertFavoritesPageIsOpened();
-            favoritesPage.assertFavoritesPageTitle();
+            favoritesPage.checkFavoritesPageIsOpened();
+            favoritesPage.checkFavoritesPageTitle(favoritesPageTitle);
         });
     }
 

@@ -13,24 +13,21 @@ public class CartPage {
     private final SelenideElement cartForm = $("[class*='widget-type_system_widget_v4_cart_1']");
     private final SelenideElement cartTitle = $(".heading");
 
-
-    private final String cartPageTitle = "Корзина";
-
     //Asserts
     @Step("Проверяем, что открыто окно Корзины")
-    public CartPage assertCartPageIsOpened() {
+    public CartPage checkCartPageIsOpened() {
         cartForm.shouldBe(visible);
         return this;
     }
 
     @Step("Проверяем заголовок окна Корзина")
-    public CartPage assertCartPageTitle() {
-        cartTitle.shouldHave(text(cartPageTitle));
+    public CartPage checkCartPageTitle(String expectedPageTitle) {
+        cartTitle.shouldHave(text(expectedPageTitle));
         return this;
     }
 
     @Step("Проверяем, что товар добавлен в Корзину: \"{value}\"")
-    public CartPage assertCartItemExists(String value) {
+    public CartPage checkCartItemExists(String value) {
         SelenideElement productInCart = $x("//a[contains(text(),value)]");
         productInCart.shouldBe(visible);
         return this;

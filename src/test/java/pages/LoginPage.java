@@ -18,9 +18,6 @@ public class LoginPage {
     private final SelenideElement errorMessage = $("[class*='co-notice--danger']");
     private final SelenideElement registrationButton = $x("//a[contains(text(),'Зарегистрироваться')]");
 
-    private final String loginPageTitle = "Вход в кабинет покупателя";
-    private final String errorMessageText = "Сочетание логина и пароля не подходит";
-
     //Actions
     @Step("Вводим телефон или Email пользователя): \"{value}\"")
     public LoginPage enterUserEmailOrPhoneNumber(String value) {
@@ -48,21 +45,21 @@ public class LoginPage {
 
     //Asserts
     @Step("Проверяем, что открыта форма авторизации")
-    public LoginPage assertLoginPageIsOpened() {
+    public LoginPage checkLoginPageIsOpened() {
         loginForm.shouldBe(visible);
         return this;
     }
 
     @Step("Проверяем заголовок страницы авторизации")
-    public LoginPage assertLoginPageTitle() {
-        loginTitle.shouldHave(text(loginPageTitle));
+    public LoginPage checkLoginPageTitle(String expectedPageTitle) {
+        loginTitle.shouldHave(text(expectedPageTitle));
         return this;
     }
 
     @Step("Проверяем отображение ошибки авторизации")
-    public LoginPage assertLoginErrorMessage() {
+    public LoginPage checkLoginErrorMessage(String expectedErrorText) {
         errorMessage.shouldBe(visible);
-        errorMessage.shouldHave(text(errorMessageText));
+        errorMessage.shouldHave(text(expectedErrorText));
         return this;
     }
 }

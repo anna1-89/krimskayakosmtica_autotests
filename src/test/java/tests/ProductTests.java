@@ -19,7 +19,7 @@ public class ProductTests extends TestBase{
             headerComponent.enterSearchProduct(productInCatalog);
             headerComponent.clickSearchButton();
         });
-        searchPage.assertSuccessSearchResult(productInCatalog);
+        searchPage.checkSuccessSearchResult(productInCatalog);
     }
 
     @Test
@@ -28,7 +28,7 @@ public class ProductTests extends TestBase{
         mainPage.openPage();
         headerComponent.enterSearchProduct(productNotInCatalog);
         headerComponent.clickSearchButton();
-        searchPage.assertNotFoundSearchResult();
+        searchPage.checkNotFoundSearchResult();
     }
 
     @Test
@@ -41,8 +41,8 @@ public class ProductTests extends TestBase{
             searchPage.clickViewProduct(productInCatalog);
         });
         step("Проверить успешность перехода в карточку товара", () -> {
-            productPage.assertProductPageIsOpened();
-            productPage.assertProductItemIsCorrect(productInCatalog);
+            productPage.checkProductPageIsOpened();
+            productPage.checkProductItemIsCorrect(productInCatalog);
         });
     }
 
@@ -56,9 +56,9 @@ public class ProductTests extends TestBase{
             searchPage.clickAddToCartButton(productInCatalog);
         });
         step("Проверить успешность добавления товара в Корзину", () -> {
-            searchPage.assertProductAddedToCartButtonIsChanged(productInCatalog);
+            searchPage.checkProductAddedToCartButtonIsChanged(productInCatalog);
             headerComponent.clickCartButton();
-            cartPage.assertCartItemExists(productInCatalog);
+            cartPage.checkCartItemExists(productInCatalog);
         });
     }
 
@@ -72,9 +72,9 @@ public class ProductTests extends TestBase{
             searchPage.clickAddToFavoritesButton(productInCatalog);
         });
         step("Проверить успешность добавления товара в Избранное", () -> {
-            searchPage.assertProductAddedToFavoritesButtonIsChanged(productInCatalog);
+            searchPage.checkProductAddedToFavoritesButtonIsChanged(productInCatalog);
             headerComponent.clickFavoritesButton();
-            favoritesPage.assertFavoritesItemExists(productInCatalog);
+            favoritesPage.checkFavoritesItemExists(productInCatalog);
         });
 
     }

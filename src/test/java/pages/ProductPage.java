@@ -15,13 +15,13 @@ public class ProductPage {
 
     //Asserts
     @Step("Проверяем, что открыта карточка товара")
-    public ProductPage assertProductPageIsOpened() {
+    public ProductPage checkProductPageIsOpened() {
         productForm.shouldBe(visible);
         return this;
     }
 
     @Step("Проверяем, что открыта карточка выбранного товара")
-    public ProductPage assertProductItemIsCorrect(String value) {
+    public ProductPage checkProductItemIsCorrect(String value) {
         String actualProduct = productTitle.text();
         assertThat(actualProduct).isEqualTo(value);
         return this;

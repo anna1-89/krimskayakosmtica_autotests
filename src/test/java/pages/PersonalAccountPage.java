@@ -19,8 +19,6 @@ public class PersonalAccountPage {
     private final SelenideElement personalAccountUserPhoneNumber = $("#client_phone");
     private final SelenideElement personalAccountUserEmail = $("#client_email");
 
-    private final String personalAccountPageTitle = "История заказов";
-
     //Actions
     @Step("Нажимаем на кнопку перехода в Контактные данные пользователя")
     public PersonalAccountPage clickUserContactDataButton() {
@@ -30,25 +28,25 @@ public class PersonalAccountPage {
 
     //Asserts
     @Step("Проверяем заголовок страницы авторизации")
-    public PersonalAccountPage assertPersonalAccountPageTitle() {
-        personalAccountTitle.shouldHave(text(personalAccountPageTitle));
+    public PersonalAccountPage checkPersonalAccountPageTitle(String expectedPageTitle) {
+        personalAccountTitle.shouldHave(text(expectedPageTitle));
         return this;
     }
 
     @Step("Проверяем, что доступна кнопка выхода из личного кабинета")
-    public PersonalAccountPage assertPersonalAccountExistButtonIsAvailable() {
+    public PersonalAccountPage checkPersonalAccountExistButtonIsAvailable() {
         exitMenuButton.shouldBe(visible);
         return this;
     }
 
     @Step("Проверяем, что доступна кнопка перехода к Истории заказов")
-    public PersonalAccountPage assertPersonalAccountOrdersButtonIsAvailable() {
+    public PersonalAccountPage checkPersonalAccountOrdersButtonIsAvailable() {
         ordersMenuButton.shouldBe(visible);
         return this;
     }
 
     @Step("Проверяем, что данные пользователя в Личном кабинете соответствуют зарегистрированным данным")
-    public PersonalAccountPage assertPersonalAccountUserDataIsCorrect(String userName, String userPhoneNumber, String userEmail) {
+    public PersonalAccountPage checkPersonalAccountUserDataIsCorrect(String userName, String userPhoneNumber, String userEmail) {
         clickUserContactDataButton();
         String actualFIO = personalAccountUserFIO.getValue();
         String actualPhoneNumber = personalAccountUserPhoneNumber.getValue().replaceAll("[()-]", "");

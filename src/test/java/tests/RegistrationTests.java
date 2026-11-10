@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Locale;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
-import static data.testData.userEmail;
+import static data.testData.*;
 
 @Story("Функционал регистрации нового пользователя")
 public class RegistrationTests extends TestBase{
@@ -45,8 +45,8 @@ public class RegistrationTests extends TestBase{
             loginPage.clickRegistrationButton()
         );
         step("Проверить успешность открытия страницы регистрации", () -> {
-            registrationPage.assertRegistrationPageTitle();
-            registrationPage.assertRegistrationPageIsOpen();
+            registrationPage.checkRegistrationPageTitle();
+            registrationPage.checkRegistrationPageIsOpen();
         });
     }
 
@@ -68,9 +68,9 @@ public class RegistrationTests extends TestBase{
             registrationPage.clickRegistrationButton();
         });
         step("Проверить успешность регистрации", () -> {
-            personalAccountPage.assertPersonalAccountPageTitle();
-            personalAccountPage.assertPersonalAccountExistButtonIsAvailable();
-            personalAccountPage.assertPersonalAccountUserDataIsCorrect(fakerUsername, fakerPhoneNumber, fakerUserEmail);
+            personalAccountPage.checkPersonalAccountPageTitle();
+            personalAccountPage.checkPersonalAccountExistButtonIsAvailable();
+            personalAccountPage.checkPersonalAccountUserDataIsCorrect(fakerUsername, fakerPhoneNumber, fakerUserEmail);
         });
     }
 
@@ -91,8 +91,9 @@ public class RegistrationTests extends TestBase{
             registrationPage.clickRegistrationButton();
         });
         step("Проверить не успешность регистрации и отображение сообщения об ошибке", () -> {
-            registrationPage.assertRegistrationPageIsOpen();
-            registrationPage.assertUserAlreadyExistsRegistrationError();
+            registrationPage.checkRegistrationPageIsOpen();
+            registrationPage.checkGeneralErrorMessage(userAlreadyExistsErrorMessageText);
+            registrationPage.checkEmailErrorMessage(userAlreadyExistsErrorMessageText);
         });
     }
 
@@ -113,8 +114,9 @@ public class RegistrationTests extends TestBase{
             registrationPage.clickRegistrationButton();
         });
         step("Проверить не успешность регистрации и отображение сообщения об ошибке", () -> {
-            registrationPage.assertRegistrationPageIsOpen();
-            registrationPage.assertFailedConfirmationPasswordRegistrationError();
+            registrationPage.checkRegistrationPageIsOpen();
+            registrationPage.checkGeneralErrorMessage(failedPasswordConfirmationErrorMessageText);
+            registrationPage.checkPasswordConfirmationErrorMessage(failedPasswordConfirmationErrorMessageText);
         });
     }
 
@@ -135,8 +137,9 @@ public class RegistrationTests extends TestBase{
             registrationPage.clickRegistrationButton();
         });
         step("Проверить не успешность регистрации и отображение сообщения об ошибке", () -> {
-            registrationPage.assertRegistrationPageIsOpen();
-            registrationPage.assertInvalidPasswordRegistrationError();
+            registrationPage.checkRegistrationPageIsOpen();
+            registrationPage.checkGeneralErrorMessage(invalidPasswordErrorMessageText);
+            registrationPage.checkPasswordErrorMessage(invalidPasswordErrorMessageText);
         });
     }
 
@@ -157,8 +160,11 @@ public class RegistrationTests extends TestBase{
             registrationPage.clickRegistrationButton();
         });
         step("Проверить не успешность регистрации и отображение сообщения об ошибке", () -> {
-            registrationPage.assertRegistrationPageIsOpen();
-            registrationPage.assertEmptyInputsRegistrationError();
+            registrationPage.checkRegistrationPageIsOpen();
+            registrationPage.checkUsernameErrorMessage(emptyInputErrorMessageText);
+            registrationPage.checkEmailErrorMessage(emptyInputErrorMessageText);
+            registrationPage.checkPhoneNumberErrorMessage(emptyInputErrorMessageText);
+
         });
     }
 

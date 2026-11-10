@@ -13,23 +13,21 @@ public class FavoritesPage {
     private final SelenideElement favoritesForm = $("[class*='widget-type_page_favorite']");
     private final SelenideElement favoritesTitle = $(".page-headding");
 
-    private final String favoritesPageTitle = "Избранное";
-
     //Asserts
     @Step("Проверяем заголовок окна Избранное")
-    public FavoritesPage assertFavoritesPageTitle() {
-        favoritesTitle.shouldHave(text(favoritesPageTitle));
+    public FavoritesPage checkFavoritesPageTitle(String expectedPageTitle) {
+        favoritesTitle.shouldHave(text(expectedPageTitle));
         return this;
     }
 
     @Step("Проверяем, что открыто окно Избранное")
-    public FavoritesPage assertFavoritesPageIsOpened() {
+    public FavoritesPage checkFavoritesPageIsOpened() {
         favoritesForm.shouldBe(visible);
         return this;
     }
 
     @Step("Проверяем, что товар добавлен в Избранное: \"{value}\"")
-    public FavoritesPage assertFavoritesItemExists(String value) {
+    public FavoritesPage checkFavoritesItemExists(String value) {
         SelenideElement productInFavorites = $x("//a[contains(text(),value)]");
         productInFavorites.shouldBe(visible);
         return this;
