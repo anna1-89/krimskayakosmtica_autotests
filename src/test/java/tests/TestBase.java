@@ -35,13 +35,14 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        //For local machine
+        //For local run
+        /*
         Configuration.browserSize = "1920x1080";
         Configuration.browser = "chrome";
         Configuration.baseUrl = "https://крымская-косметика.рф";
         Configuration.timeout = 10000; // default 4000
+        */
 
-        /*
         Configuration.baseUrl = System.getProperty("url", "https://крымская-косметика.рф");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
@@ -52,7 +53,7 @@ public class TestBase {
         if (selenoidUrl != null && !selenoidUrl.isBlank()) {
             Configuration.remote = selenoidUrl;
         }
-        */
+
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         ChromeOptions chromeOptions = new ChromeOptions();
