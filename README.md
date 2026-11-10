@@ -79,6 +79,8 @@ ____
 ***Локальный запуск:***
 ```bash  
 gradle clean
+-DuserEmail=email пользователя
+-DuserPassword=пароль пользователя
 ```
 
 ***Удалённый запуск через Jenkins:***
@@ -92,6 +94,8 @@ test
 -DbrowserSize=$BROWSERSIZE
 -Dheadless=$HEADLESS
 -DselenoidUrl=https://user1:1234@$SELENOIDE_URL/wd/hub
+-DuserEmail=email пользователя
+-DuserPassword=пароль пользователя
 ```
 ___
 <a id="allure"></a>
