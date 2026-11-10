@@ -2,6 +2,6 @@ package data;
 
 public class testData {
 
-    public static String userEmail = "test01qaguru@mailna.me";
-    public static String userPassword = "761349APbb12";
+    public static String userEmail = System.getProperty("userEmail");;
+    public static String userPassword = System.getProperty("userPassword");
 }
